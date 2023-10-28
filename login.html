@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #login_box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="login_box">
+        <h1>Login</h1>
+        <input type="text" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+        <button id="login_button">Log In</button>
+        <button id="logout_button" style="display:none;">Log Out</button>
+    </div>
+
+
+    <script type="text/javascript">
+        const loginButton = document.getElementById("login_button");
+        const logoutButton = document.getElementById("logout_button");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+
+        loginButton.addEventListener("click", () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            // Basic email and password validation
+            if (email.trim() === "") {
+                alert("Please enter your email.");
+                return;
+            }
+
+            if (password.trim() === "") {
+                alert("Please enter your password.");
+                return;
+            }
+
+            // You can add additional validation here, such as checking for valid email format.
+
+            // For demonstration, this code just redirects to "hello.html" when logging in.
+            location.replace('welcome.html');
+        });
+         
+    </script> 
+</body>
+</html>
